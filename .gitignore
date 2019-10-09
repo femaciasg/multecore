@@ -1,0 +1,8 @@
+*.class
+*.asm
+
+*/bin/
+
+# Package Files #
+*.war
+*.ear

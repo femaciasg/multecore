@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MultEcore Common
+Bundle-SymbolicName: no.hvl.multecore.common;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: no.hvl.multecore.common.Activator
+Require-Bundle: org.eclipse.ui;bundle-version="3.109.0",
+ org.eclipse.core.runtime;bundle-version="3.13.0",
+ org.eclipse.core.resources;bundle-version="3.12.0",
+ org.eclipse.emf.common;bundle-version="2.13.0",
+ org.eclipse.emf.ecore;bundle-version="2.13.0",
+ org.eclipse.emf.ecore.xmi;bundle-version="2.13.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: no.hvl.multecore.common,
+ no.hvl.multecore.common.exceptions,
+ no.hvl.multecore.common.hierarchy,
+ no.hvl.multecore.common.registry

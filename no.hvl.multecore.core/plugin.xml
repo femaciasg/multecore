@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+	<extension point="org.eclipse.ui.console.consoleFactories">
+	   <consoleFactory
+	         class="no.hvl.multecore.core.events.MultEcoreConsole"
+	         icon="icons/multecore-logo-color-15x15.png"
+	         label="MultEcore Console">
+	   </consoleFactory>
+	</extension>
+
+	<extension point="org.eclipse.ui.views">
+		<category
+				name="MultEcore Views"
+				id="no.hvl.multecore.core.views">
+		</category>
+		<view
+				allowMultiple="false"
+				name="MultEcore Log"
+				icon="icons/multecore-logo-color-15x15.png"
+				category="no.hvl.multecore.core.views"
+				class="no.hvl.multecore.core.events.LogView"
+				id="no.hvl.multecore.core.views.LogView">
+		</view>
+		<view
+				allowMultiple="false"
+				name="Hierarchy View"
+				icon="icons/hierarchy-logo-15x15.png"
+				category="no.hvl.multecore.core.views"
+				class="no.hvl.multecore.core.events.HierarchyView"
+				id="no.hvl.multecore.core.views.HierarchyView"
+				inject="true">
+		</view>
+	</extension>
+
+	<extension point="org.eclipse.ui.commands">
+		<category
+				name="MultEcore Commands"
+				id="no.hvl.multecore.core.commands"
+				description="MultEcore Commands">
+		</category>
+		<command
+				categoryId="no.hvl.multecore.core.commands"
+				defaultHandler="no.hvl.multecore.core.events.ToggleMLMDefaultHandler"
+				id="no.hvl.multecore.core.commands.Toggle"
+				name="Toggle MLM">
+			<state
+					id="org.eclipse.ui.commands.toggleState">
+				<class
+						class="org.eclipse.ui.handlers.RegistryToggleState">
+					<parameter
+							name="default"
+							value="false">
+					</parameter>
+					<parameter
+							name="persisted"
+							value="false">
+					</parameter>
+				</class>
+			</state>
+		</command>
+	</extension>
+
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar">
+			<toolbar
+					id="no.hvl.multecore.core.toolbar">
+				<command
+						commandId="no.hvl.multecore.core.commands.Toggle"
+						icon="icons/multecore-logo-color-15x15.png"
+						style="toggle"
+						tooltip="Enable/Disable MLM">
+				</command>
+				<separator
+						name="additions"
+						visible="true">
+				</separator>
+			</toolbar>
+		</menuContribution>
+	</extension>
+	
+	<extension point="org.eclipse.ui.popupMenus">
+		<objectContribution
+		      objectClass="org.eclipse.core.resources.IProject"
+		      id="no.hvl.multecore.core.contextmenus.contributions">
+		   <menu
+		         icon="icons/multecore-logo-color-15x15.png"
+		         id="no.hvl.multecore.core.contextmenus.menus"
+		         label="MultEcore"
+		         path="additions">
+		      <separator
+		            name="group1">
+		      </separator>
+		   </menu>
+		   <action
+		       label ="Add supplementary hierarchies"
+		       class = "no.hvl.multecore.core.events.AddSupplementaryHierarchyHandler"
+		       menubarPath="no.hvl.multecore.core.contextmenus.menus/group1"
+		       id="no.hvl.multecore.core.contextmenus.menus.actions.addSupplementary">
+		   </action>
+		</objectContribution>
+	</extension>
+
+</plugin>
