@@ -289,6 +289,11 @@ the PhD thesis "Multilevel Modelling and Domain-Specific Languages"
 with layers that can be disabled to ease readability. [[ZIP]](https://github.com/femaciasg/multecore-resources/blob/master/images/commutative-diagrams-detail.zip?raw=true)
 
 
+# License
+
+MultEcore is offered under the GNU General Public License, version 3.
+
+
 # Contact
 
 Fernando Macias – <http://fernandomacias.es>
